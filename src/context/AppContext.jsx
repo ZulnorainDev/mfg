@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState } from "react";
 import * as api from "../api/ApiService";
 
 export const AppContext = createContext();
@@ -12,76 +12,76 @@ export const AppProvider = ({ children }) => {
   const [navvalue, setnavvalue] = useState("home");
 
   // Fetch all initial data
-  const fetchAllData = async () => {
-    setLoading(true);
-    try {
-      const [companyRes, doctorsRes, medicalRes, faqsRes] = await Promise.all([
-        api.getCompanyInfo(),
-        api.getAllDoctors(),
-        api.getMedicalInfo(),
-        api.getFaqs(),
-      ]);
-      setCompanyInfo(companyRes.data);
-      setDoctors(doctorsRes.data);
-      setMedicalInfo(medicalRes.data);
-      setFaqs(faqsRes.data);
+  // const fetchAllData = async () => {
+  //   setLoading(true);
+  //   try {
+  //     const [companyRes, doctorsRes, medicalRes, faqsRes] = await Promise.all([
+  //       api.getCompanyInfo(),
+  //       api.getAllDoctors(),
+  //       api.getMedicalInfo(),
+  //       api.getFaqs(),
+  //     ]);
+  //     setCompanyInfo(companyRes.data);
+  //     setDoctors(doctorsRes.data);
+  //     setMedicalInfo(medicalRes.data);
+  //     setFaqs(faqsRes.data);
 
-      console.log("hello");
-    } catch (error) {
-      console.error("Error fetching data", error);
-    }
-    setLoading(false);
-  };
+  //     console.log("hello");
+  //   } catch (error) {
+  //     console.error("Error fetching data", error);
+  //   }
+  //   setLoading(false);
+  // };
 
-  useEffect(() => {
-    fetchAllData();
-  }, []);
+  // useEffect(() => {
+  //   fetchAllData();
+  // }, []);
 
   // CRUD Methods
-  const addOrUpdateCompanyInfo = async (data) => {
-    await api.saveCompanyInfo(data);
-    fetchAllData();
-  };
+  // const addOrUpdateCompanyInfo = async (data) => {
+  //   await api.saveCompanyInfo(data);
+  //   fetchAllData();
+  // };
 
-  const removeCompanyInfo = async (id) => {
-    await api.deleteCompanyInfo(id);
-    fetchAllData();
-  };
+  // const removeCompanyInfo = async (id) => {
+  //   await api.deleteCompanyInfo(id);
+  //   fetchAllData();
+  // };
 
-  const addOrUpdateDoctor = async (data) => {
-    await api.saveDoctor(data);
-    fetchAllData();
-  };
+  // const addOrUpdateDoctor = async (data) => {
+  //   await api.saveDoctor(data);
+  //   fetchAllData();
+  // };
 
-  const removeDoctor = async (id) => {
-    await api.deleteDoctor(id);
-    fetchAllData();
-  };
+  // const removeDoctor = async (id) => {
+  //   await api.deleteDoctor(id);
+  //   fetchAllData();
+  // };
 
-  const addOrUpdateMedicalInfo = async (data) => {
-    await api.saveMedicalInfoBulk(data);
-    fetchAllData();
-  };
+  // const addOrUpdateMedicalInfo = async (data) => {
+  //   await api.saveMedicalInfoBulk(data);
+  //   fetchAllData();
+  // };
 
-  const updateMedicalInfoItem = async (id, data) => {
-    await api.updateMedicalInfo(id, data);
-    fetchAllData();
-  };
+  // const updateMedicalInfoItem = async (id, data) => {
+  //   await api.updateMedicalInfo(id, data);
+  //   fetchAllData();
+  // };
 
-  const removeMedicalInfo = async (id) => {
-    await api.deleteMedicalInfo(id);
-    fetchAllData();
-  };
+  // const removeMedicalInfo = async (id) => {
+  //   await api.deleteMedicalInfo(id);
+  //   fetchAllData();
+  // };
 
-  const addOrUpdateFaq = async (data) => {
-    await api.saveFaq(data);
-    fetchAllData();
-  };
+  // const addOrUpdateFaq = async (data) => {
+  //   await api.saveFaq(data);
+  //   fetchAllData();
+  // };
 
-  const removeFaq = async (id) => {
-    await api.deleteFaq(id);
-    fetchAllData();
-  };
+  // const removeFaq = async (id) => {
+  //   await api.deleteFaq(id);
+  //   fetchAllData();
+  // };
 
   //*********************************************** */ get doctors data **********************
   const fetcdochdata = async () => {
@@ -136,7 +136,7 @@ export const AppProvider = ({ children }) => {
       const [companyRes] = await Promise.all([api.getCompanyInfo()]);
 
       console.log("all faq res", companyRes);
-      setFaqs(companyRes.data);
+      setCompanyInfo(companyRes.data);
       console.log("faq list : ", companyRes);
     } catch (err) {
       console.log("catch error : ", err);
@@ -151,16 +151,16 @@ export const AppProvider = ({ children }) => {
         doctors,
         medicalInfo,
         faqs,
-        fetchAllData,
-        addOrUpdateCompanyInfo,
-        removeCompanyInfo,
-        addOrUpdateDoctor,
-        removeDoctor,
-        addOrUpdateMedicalInfo,
-        updateMedicalInfoItem,
-        removeMedicalInfo,
-        addOrUpdateFaq,
-        removeFaq,
+        // fetchAllData,
+        // addOrUpdateCompanyInfo,
+        // removeCompanyInfo,
+        // addOrUpdateDoctor,
+        // removeDoctor,
+        // addOrUpdateMedicalInfo,
+        // updateMedicalInfoItem,
+        // removeMedicalInfo,
+        // addOrUpdateFaq,
+        // removeFaq,
         navvalue,
         setnavvalue,
 
