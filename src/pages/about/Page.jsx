@@ -30,7 +30,9 @@ import { Badge } from "../../components/ui/Badge";
 import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 
-export default function Page() {
+import React from "react";
+
+const Page = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
   const [item, setItem] = useState(state?.item || null);
@@ -66,7 +68,7 @@ export default function Page() {
       const response = await fetch(
         `https://mfgprodbot.hellommj.com/api/about_and_company_info_insert_update/?id=${companyId}`,
         {
-          method: "POST", 
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
@@ -150,14 +152,11 @@ export default function Page() {
     setEditData(newData);
   }
 
-  if (!item) return <p>No company information available</p>;
-
   const dataToUse = editMode ? editData : item;
-
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-50 to-[var(--1)]/20">
       <div className="px-8 pt-4 bg-gray-50">
-        <Navbar/>
+        <Navbar />
       </div>
 
       <section className="px-8 pb-8">
@@ -170,7 +169,11 @@ export default function Page() {
           <div className="flex gap-2">
             {editMode ? (
               <>
-                <Button variant="outline" onClick={cancelEdit} className="cursor-pointer ">
+                <Button
+                  variant="outline"
+                  onClick={cancelEdit}
+                  className="cursor-pointer "
+                >
                   <X className="mr-2 h-4 w-4" /> Cancel
                 </Button>
                 <Button
@@ -182,8 +185,10 @@ export default function Page() {
               </>
             ) : (
               <>
-                <button onClick={startEdit}
-                 className="text-lg cursor-pointer flex items-center gap-4 pr-5 pl-4 py-1 rounded-md bg-[var(--1)] text-white">
+                <button
+                  onClick={startEdit}
+                  className="text-lg cursor-pointer flex items-center gap-4 pr-5 pl-4 py-1 rounded-md bg-[var(--1)] text-white"
+                >
                   <Edit className="h-4 w-4" /> Edit
                 </button>
                 {/* <Button variant="destructive" onClick={deleteCompanyInfo} className="cursor-pointer">
@@ -489,4 +494,6 @@ export default function Page() {
       </section>
     </main>
   );
-}
+};
+
+export default Page;

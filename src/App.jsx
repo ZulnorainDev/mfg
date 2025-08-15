@@ -10,7 +10,7 @@ import About from "./pages/About";
 import MedicalInfo from "./pages/MedicalInfo";
 import Page from "./pages/about/page";
 import About_newData from "./pages/about/About_newdata";
-import Protected from "./auth/Protected";
+
 
 const App = () => {
   return (
