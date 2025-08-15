@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+:root {
+  --1: #9ecd4d;
+  --11: #8BB453;
+  --2: #59595b;
+  --3: #F3F7E5;
+  --4: #126466;
+  /* 5 text color */
+  --5: #81BE7A;  
+}
+
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #9ecd4d;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+/* For Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #9ecd4d transparent;
+}
